@@ -50,8 +50,10 @@ int create_non_blocking_listen_socket(const char *IP, int port, int backlog)
 	if ((fd = create_listen_socket(IP, port, backlog)) < 0)
 		return -1;
 	else
-		if (make_fd_non_blocking(fd) < 0)
+		if (make_fd_non_blocking(fd) < 0) {
+			close(fd);
 			return -1;
+		}
 
 	return 0;
 }
