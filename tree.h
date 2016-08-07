@@ -3,7 +3,7 @@
 
 typedef struct tree_s {
 	size_t size;
-	int    (*cmpar)(void *a, void *b);
+	int    (*cmpar)(const void *a, const void *b);
 	node_t *root;
 } tree_t;
 
